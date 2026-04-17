@@ -21,7 +21,7 @@ weatherForm.addEventListener("submit", (e) => {
   messageTwo.textContent = "";
 
   fetch(
-    "https://3000-firebase-node-course-1774895503464.cluster-zhw3w37rxzgkutusbbhib6qhra.cloudworkstations.dev/weather?address=" +
+    "/weather?address=" +
       location
   ).then((response) => {
     response.json().then((data) => {
