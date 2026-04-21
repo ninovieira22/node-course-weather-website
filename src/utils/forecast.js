@@ -2,7 +2,9 @@ const request = require("request");
 
 const forecast = (latitude, longitude, callback) => {
   const url =
-    "https://api.weatherstack.com/current?access_key=" + process.env.WEATHERSTACK_ACCESS_KEY + "&query=" +
+    "https://api.weatherstack.com/current?access_key=" +
+    process.env.WEATHERSTACK_ACCESS_KEY +
+    "&query=" +
     latitude +
     "," +
     longitude;
@@ -12,7 +14,7 @@ const forecast = (latitude, longitude, callback) => {
     if (error) {
       callback("Unable to connect to weather service.", undefined);
     } else if (body.error) {
-      callback("Unable to find location", undefined);
+      callback("Unable to find location!", undefined);
     } else {
       callback(
         undefined,
@@ -21,7 +23,7 @@ const forecast = (latitude, longitude, callback) => {
           body.current.temperature +
           "ªC degrees out. It feels like " +
           body.current.feelslike +
-          "ªC degress out."
+          "ªC degress out.",
       );
     }
   });
